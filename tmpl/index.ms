@@ -8,28 +8,35 @@
  <link rel="stylesheet" href="/pron/rsrc/common.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<body> 
- <form class="form-horizontal" action="/pron/pron.cgi" method="GET">
-  <fieldset>
-   <!-- Form Name -->
-   <legend>Pronunciation Checker for English Word</legend>
-   <!-- Text input-->
-   <div class="form-group">
-    <label class="col-md-4 control-label" for="word">Word</label>
-    <div class="col-md-4">
-     <input id="word" name="word" type="text" placeholder="type only one word" class="form-control input-md" required="">
+<body>
+ <div class="container">
+  <form class="form-horizontal" action="/pron/pron.cgi" method="GET">
+   <fieldset>
+    <!-- Form Name -->
+    <legend>Pronunciation Checker for English Word</legend>
+    <!-- Text input-->
+    <div class="form-group">
+     <label class="col-md-4 control-label" for="word">Word</label>
+     <div class="col-md-4">
+      <input id="word" name="word" type="text" placeholder="type only one word" class="form-control input-md" required="">
+     </div>
     </div>
-   </div>
-   <!-- Button -->
-   <div class="form-group">
-    <label class="col-md-4 control-label" for="singlebutton"></label>
-    <div class="col-md-4">
-     <button class="btn btn-primary">Send</button>
+    <!-- Button -->
+    <div class="form-group">
+     <label class="col-md-4 control-label" for="singlebutton"></label>
+     <div class="col-md-4">
+      <button class="btn btn-primary">Send</button>
+     </div>
     </div>
-   </div>
-  </fieldset>
- </form>
+   </fieldset>
+  </form>
+ </div>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <footer class="footer">
+  <div class="container">
+   <p class="text-muted">Powered by <a href="http://api.forvo.com/">Forvo.com API</a></p>
+  </div>
+ </footer>
 </body>
 </html>

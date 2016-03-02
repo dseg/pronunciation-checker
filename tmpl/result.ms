@@ -4,10 +4,11 @@
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="/rsrc/common.css"></style> 
+ <link rel="stylesheet" href="/pron/rsrc/common.css"></style> 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container">
  <div class="panel panel-primary">
   <div class="panel-heading">
    <h1 class="panel-title">Word: {{word}}</h1>
@@ -31,7 +32,9 @@
    {{/mp3}}   
   </div>
  </div>
+ </div>
  <hr>
+ <div class="container">
  <form class="form-horizontal" action="/pron/pron.cgi" method="GET">
   <fieldset>
    <!-- Form Name -->
@@ -52,6 +55,12 @@
    </div>
   </fieldset>
  </form>
+ </div>
+ <footer class="footer">
+  <div class="container">
+   <p class="text-muted">Powered by <a href="http://api.forvo.com/">Forvo.com API</a></p>
+  </div>
+ </footer>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
