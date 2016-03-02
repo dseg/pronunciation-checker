@@ -25,11 +25,15 @@
    {{#forvo_rate}}
    <h4>rate: {{forvo_rate}}</h4>
    {{/forvo_rate}}
-   {{#mp3}}
+
    <audio controls="controls" autoload="none" volume="1">
+   {{#mp3}}
     <source src="{{mp3}}" type="audio/mp3">
+   {{/mp3}}
+   {{#ogg}}
+    <source src="{{ogg}}" type="audio/ogg">
+   {{/ogg}}    
    </audio>
-   {{/mp3}}   
   </div>
  </div>
  </div>

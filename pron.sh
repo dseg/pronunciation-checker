@@ -34,6 +34,7 @@ render_result(){
   word="$2" 
   [ -n "$3" ] && forvo_rate="$3"
   [ -n "$4" ] && mp3="$4"
+  [ -n "$5" ] && ogg="$5"
   mo < tmpl/result.ms
 }
 
@@ -129,8 +130,9 @@ fi
 while true; do
   read forvo_rate
   read -r mp3
+  read -r ogg  
   break
-done < <($jshon -e items -e 0 -e rate -u -p -e pathmp3 -u <<<"$res")
+done < <($jshon -e items -e 0 -e rate -u -p -e pathmp3 -u -p -e pathogg -u <<<"$res")
 
-render_result "$pron" "$word" "$forvo_rate" "$mp3"
+render_result "$pron" "$word" "$forvo_rate" "$mp3" "$ogg"
 exit 0
