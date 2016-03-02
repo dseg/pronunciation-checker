@@ -9,8 +9,6 @@
 # SeeAlso:      http://http://api.forvo.com/
 #               https://www.wordsapi.com/
 # History:      v0.1 02-Mar-2016 Initial release.
-# Usage:        This is a CGI script but you can run from shell.
-#               Simply run ./pron.sh <word>
 # ----------------------------------------------------------------------
 
 # ----------------------------------------------------------------------
@@ -43,7 +41,7 @@ render_result(){
 die() {
   err=${1:='An error occured'}
   [ -n "$is_cgi" ] && echo -ne 'Content-type: text/plain\n\n'
-  echo FATAL: $err
+  echo "FATAL: $err"
   exit 1
 }
 
@@ -88,9 +86,9 @@ if [ -n "$is_cgi" ]; then
   parse_querystring
   if [ -z "${query['word']}" ]; then
     render_index
+    exit 0
   fi
   word=${query['word']}
-  echo $word; exit
 else
   word=${1:?'No word specified.'}
 fi
@@ -99,7 +97,7 @@ fi
 url="https://wordsapiv1.p.mashape.com/words/$word"
 
 # Query to WordsAPI
-res=$($curl $url -sL -H "X-Mashape-Key: $wordsapi_key" -H 'Accept: application/json')
+res=$($curl "$url" -sL -H "X-Mashape-Key: $wordsapi_key" -H 'Accept: application/json')
 if [ $? -ne 0 ]; then
   echo "Error getting response from wordsapi.com. Error code: $res"
   exit 1
@@ -114,13 +112,13 @@ if [ $? -ne 0 ]; then
   pron=$($jshon -e pronunciation -u <<<"$res")
 fi
 if [ $? -ne 0 ] || [ -z "$pron" ]; then
-  render_result 'No match found...' $word
+  render_result '' "$word"
   exit 1
 fi
 
 # Get the spoken pronuntiations (sound) from Forvo.com
 url="http://apifree.forvo.com/key/$forvo_key/format/json/action/standard-pronunciation/word/$word/language/en"
-res=$($curl -sL $url)
+res=$($curl -sL "$url")
 if [ $? -ne 0 ]; then
   echo "Error getting response from forvo.com. errorcode: $res"
   exit 1
@@ -134,5 +132,5 @@ while true; do
   break
 done < <($jshon -e items -e 0 -e rate -u -p -e pathmp3 -u <<<"$res")
 
-render_result $pron $word $forvo_rate $mp3
+render_result "$pron" "$word" "$forvo_rate" "$mp3"
 exit 0

@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body> 
-<form class="form-horizontal" action="/pron/pron.cgi" method="GET">
+ <form class="form-horizontal" action="/pron/pron.cgi" method="GET">
   <fieldset>
    <!-- Form Name -->
    <legend>Pronunciation Checker for English Word</legend>
