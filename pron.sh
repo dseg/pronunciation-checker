@@ -29,7 +29,7 @@ render_result(){
     echo -e "word: $word, pronunciation: ${RED}$pron${NOCOLOR}"
     return
   fi
-  [ -n $is_cgi ] && echo -ne 'Content-type: text/html\n\n'
+  [ -n "$is_cgi" ] && echo -ne 'Content-type: text/html\n\n'
   pron="$1" 
   word="$2" 
   [ -n "$3" ] && forvo_rate="$3"
