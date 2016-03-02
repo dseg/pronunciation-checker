@@ -17,7 +17,7 @@
    <div class="form-group">
     <label class="col-md-4 control-label" for="word">Word</label>
     <div class="col-md-4">
-     <input id="word" name="word" type="text" placeholder="word" class="form-control input-md" required="">
+     <input id="word" name="word" type="text" placeholder="type only one word" class="form-control input-md" required="">
     </div>
    </div>
    <!-- Button -->
