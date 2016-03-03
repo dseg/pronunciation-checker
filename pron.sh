@@ -21,14 +21,15 @@ render_index(){
   mo < tmpl/index.ms
 }
 
-# Render the result page
+# Render the result
 render_result(){
   if [ -z "$is_cgi" ]; then
+    # shell
     local red='\033[0;31m'
     local nocolor='\033[0m'
     echo -e "word: $word, pronunciation: ${red}$pron${nocolor}"
-    return
   else
+    # CGI
     echo -ne 'Content-type: text/html\n\n'
     pron="$1" 
     word="$2" 
