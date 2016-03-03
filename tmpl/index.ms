@@ -35,7 +35,7 @@
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
  <footer class="footer">
   <div class="container">
-   <p class="text-muted">Powered by <a href="http://api.forvo.com/">Forvo.com API</a></p>
+   <p class="text-muted"><a href="http://forvo.com/">Pronunciations by Forvo</a></p>
   </div>
  </footer>
 </body>
