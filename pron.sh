@@ -73,7 +73,11 @@ jshon=/usr/bin/jshon
 [ -f "$jshon" ] || die 'jshon not found. Please get the jshon from http://kmkeen.com/jshon/'
 
 # Read the API key
-[ -f ./.keys ] && source ./.keys || die "Error reading the API key file from ./.keys."
+if [ -f ./.keys ]; then
+  source ./.keys 
+else
+  die 'Error reading the API key file from ./.keys.'
+fi
 
 ## parameters for Forvo API
 wordsapi_key=${WORDSAPI_KEY:?"No WordsAPI key found."}
@@ -128,7 +132,7 @@ fi
 # Extract the mp3 url and the phonetic transcription from the response json
 # Note: Return result as 2 lines by the 'jshon' command
 while true; do
-  read forvo_rate
+  read -r forvo_rate
   read -r mp3
   read -r ogg  
   break
