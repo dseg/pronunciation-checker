@@ -24,18 +24,19 @@ render_index(){
 # Render the result page
 render_result(){
   if [ -z "$is_cgi" ]; then
-    local RED='\033[0;31m'
-    local NOCOLOR='\033[0m'
-    echo -e "word: $word, pronunciation: ${RED}$pron${NOCOLOR}"
+    local red='\033[0;31m'
+    local nocolor='\033[0m'
+    echo -e "word: $word, pronunciation: ${red}$pron${nocolor}"
     return
+  else
+    echo -ne 'Content-type: text/html\n\n'
+    pron="$1" 
+    word="$2" 
+    [ -n "$3" ] && forvo_rate="$3"
+    [ -n "$4" ] && mp3="$4"
+    [ -n "$5" ] && ogg="$5"
+    mo < tmpl/result.ms  
   fi
-  [ -n "$is_cgi" ] && echo -ne 'Content-type: text/html\n\n'
-  pron="$1" 
-  word="$2" 
-  [ -n "$3" ] && forvo_rate="$3"
-  [ -n "$4" ] && mp3="$4"
-  [ -n "$5" ] && ogg="$5"
-  mo < tmpl/result.ms
 }
 
 # die, like Perl
